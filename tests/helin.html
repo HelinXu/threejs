@@ -42,7 +42,23 @@
         scene.add(obj); //返回的组对象插入场景中
 
         // 加载后操作
-        obj.children[0].scale.set(2, 2, 2); //缩放球体网格模型
+        // obj.children[0].scale.set(2, 2, 2); //缩放球体网格模型
+        // 通过调节参数，地球表面的凹凸感更强
+        // obj.children[0].material.normalScale.set(3, 3);
+      })
+    })
+
+    MTLLoader.load('./26875/textured_objs/original-49.mtl', function(materials) {
+      // 返回一个包含材质的对象MaterialCreator
+      console.log(materials);
+      //obj的模型会和MaterialCreator包含的材质对应起来
+      OBJLoader.setMaterials(materials);
+      OBJLoader.load('./26875/textured_objs/original-49.obj', function(obj) {
+        console.log(obj);
+        scene.add(obj); //返回的组对象插入场景中
+
+        // 加载后操作
+        // obj.children[0].scale.set(2, 2, 2); //缩放球体网格模型/
         // 通过调节参数，地球表面的凹凸感更强
         // obj.children[0].material.normalScale.set(3, 3);
       })
